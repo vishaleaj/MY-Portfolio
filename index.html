@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyber">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vishal | B.Tech Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts for Exclusive Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Ambient Decor Background -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="decor-grid"></div>
+
+  <!-- Top Announcement / Status Bar -->
+  <header class="top-navbar" id="topNav">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-badge">V</span>
+        <div class="logo-text">
+          <span class="logo-name" data-editable-id="nav-name">Vishal</span>
+          <span class="logo-tag">B.Tech 1st Year</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About & Achievements</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Controls: Theme Selector, Edit Mode & Hire Me Button -->
+      <div class="nav-actions">
+        <!-- Theme Switcher -->
+        <div class="theme-selector-wrapper">
+          <label for="themeSelect" class="theme-label" title="Choose Decor Theme">🎨 Theme:</label>
+          <select id="themeSelect" class="theme-select" aria-label="Select Theme">
+            <option value="cyber">Cyber Obsidian</option>
+            <option value="aurora">Midnight Aurora</option>
+            <option value="sunset">Sunset Crimson</option>
+            <option value="luxe">Minimal Luxe</option>
+          </select>
+        </div>
+
+        <!-- Edit Mode Toggle -->
+        <button id="toggleEditBtn" class="btn btn-secondary edit-toggle-btn" title="Toggle visual edit mode to edit any text on the page">
+          <span class="edit-icon">✏️</span>
+          <span id="editBtnText">Edit Website</span>
+        </button>
+
+        <!-- Top "Hire Me" Button -->
+        <a href="#contact" class="btn btn-primary hire-me-btn" id="topHireMeBtn">
+          <span>Hire Me</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Floating Edit Toolbar (Appears when Edit Mode is active) -->
+  <aside class="edit-floating-bar" id="editToolbar" style="display: none;">
+    <div class="edit-toolbar-inner">
+      <span class="live-dot"></span>
+      <span class="toolbar-status"><strong>Edit Mode Active:</strong> Click any text or the photo to customize.</span>
+      <div class="toolbar-buttons">
+        <button id="saveEditsBtn" class="btn btn-sm btn-success">💾 Save Changes</button>
+        <button id="resetEditsBtn" class="btn btn-sm btn-outline-danger">↺ Reset Default</button>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- SECTION 1: HOME / HERO SECTION -->
+    <section class="section hero-section" id="home">
+      <div class="container hero-container">
+        <!-- Left: Profile & Photo Area -->
+        <div class="hero-profile-column">
+          <div class="profile-card">
+            <div class="profile-avatar-wrapper" id="profileAvatarContainer">
+              <!-- Profile Picture Image (Editable) -->
+              <img id="profileImage" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='100%' height='100%'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%236366f1'/><stop offset='100%25' stop-color='%23a855f7'/></linearGradient></defs><rect width='200' height='200' fill='url(%23grad)'/><circle cx='100' cy='75' r='38' fill='%23ffffff' opacity='0.9'/><path d='M35 180 C35 130, 165 130, 165 180 Z' fill='%23ffffff' opacity='0.9'/><text x='100' y='82' font-family='Arial' font-size='22' font-weight='bold' fill='%234f46e5' text-anchor='middle'>V</text></svg>" alt="Vishal Profile Picture" class="profile-image" />
+              
+              <!-- Hover Overlay / Upload Button -->
+              <label for="photoFileInput" class="photo-upload-overlay" title="Click to change your photo">
+                <span class="camera-icon">📷</span>
+                <span class="upload-label">Change Photo</span>
+              </label>
+              <input type="file" id="photoFileInput" accept="image/*" class="sr-only" />
+
+              <div class="status-indicator" title="Available for opportunities">
+                <span class="pulse-dot"></span> Available
+              </div>
+            </div>
+
+            <!-- Quick Photo Controls -->
+            <div class="photo-actions-box">
+              <label for="photoFileInput" class="btn btn-xs btn-outline">
+                📷 Upload Photo
+              </label>
+              <button id="resetPhotoBtn" class="btn btn-xs btn-ghost" title="Reset default avatar">
+                Reset
+              </button>
+            </div>
+
+            <div class="profile-meta">
+              <h3 class="meta-name" data-editable-id="card-name">Vishal</h3>
+              <p class="meta-sub" data-editable-id="card-sub">B.Tech First-Year Student</p>
+              <span class="meta-badge" data-editable-id="card-loc">📍 Sikar • JECERC University</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Introduction & Section Action Buttons -->
+        <div class="hero-intro-column">
+          <div class="hero-chip">
+            <span class="chip-spark">⚡</span>
+            <span data-editable-id="hero-chip-text">Welcome to My Official Portfolio</span>
+          </div>
+
+          <h1 class="hero-heading">
+            Hello, I am <span class="gradient-text" data-editable-id="hero-name">Vishal</span>
+          </h1>
+
+          <div class="hero-bio-card">
+            <p class="hero-bio-lead" data-editable-id="hero-bio-intro">
+              I am from <strong>Sikar</strong> and currently studying in <strong>JECERC University</strong> as a <strong>B.Tech first-year student</strong>.
+            </p>
+            <p class="hero-bio-note" data-editable-id="hero-bio-note">
+              Welcome to my portfolio! Here you can explore my achievements, hobbies, skills, downloadable resume, and contact details. Feel free to use the "Hire Me" button or reach out directly.
+            </p>
+          </div>
+
+          <!-- Clickable Buttons to Other Sections -->
+          <div class="hero-nav-buttons">
+            <a href="#about" class="btn btn-outline nav-action-btn">
+              <span class="btn-icon">👤</span>
+              <span>About & Achievements</span>
+            </a>
+            <a href="#skills" class="btn btn-outline nav-action-btn">
+              <span class="btn-icon">⚡</span>
+              <span>My Skills</span>
+            </a>
+            <a href="#resume" class="btn btn-outline nav-action-btn">
+              <span class="btn-icon">📄</span>
+              <span>My Resume</span>
+            </a>
+            <a href="#contact" class="btn btn-outline nav-action-btn">
+              <span class="btn-icon">📬</span>
+              <span>Contact Information</span>
+            </a>
+            <a href="#contact" class="btn btn-primary nav-action-btn hire-highlight-btn">
+              <span class="btn-icon">💼</span>
+              <span>Hire Me</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT MYSELF, ACHIEVEMENTS & HOBBIES -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Section 02</span>
+          <h2 class="section-title">About Myself & Achievements</h2>
+          <p class="section-subtitle" data-editable-id="about-sub">Personal background, verified achievements, and daily hobbies</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- About Myself Card -->
+          <div class="glass-card about-card">
+            <div class="card-icon-wrapper">
+              <span class="card-icon">🎓</span>
+            </div>
+            <h3 class="card-title">About Myself</h3>
+            <div class="card-content" data-editable-id="about-myself-content">
+              <p>
+                My name is <strong>Vishal</strong>. I am originally from <strong>Sikar</strong> and I am currently pursuing my <strong>B.Tech degree in my first year at JECERC University</strong>.
+              </p>
+              <p>
+                I am actively focused on building strong foundational technical proficiency in programming alongside maintaining high physical fitness, athletic discipline, and continuous learning.
+              </p>
+            </div>
+            <div class="card-pills">
+              <span class="pill">Student</span>
+              <span class="pill">B.Tech 1st Year</span>
+              <span class="pill">JECERC University</span>
+              <span class="pill">Sikar</span>
+            </div>
+          </div>
+
+          <!-- Achievements Card -->
+          <div class="glass-card achievements-card">
+            <div class="card-icon-wrapper">
+              <span class="card-icon">🏆</span>
+            </div>
+            <h3 class="card-title">Achievements</h3>
+            <div class="achievements-list">
+              <div class="achievement-item">
+                <div class="achieve-bullet">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <div class="achieve-details">
+                  <h4 class="achieve-heading" data-editable-id="achieve-1-title">C Language</h4>
+                  <p class="achieve-desc" data-editable-id="achieve-1-desc">Developed foundational core programming skills and problem-solving techniques in C language.</p>
+                </div>
+              </div>
+
+              <div class="achievement-item">
+                <div class="achieve-bullet">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <div class="achieve-details">
+                  <h4 class="achieve-heading" data-editable-id="achieve-2-title">Certificate from IBM</h4>
+                  <p class="achieve-desc" data-editable-id="achieve-2-desc">Successfully completed and earned a recognized certification from IBM.</p>
+                </div>
+              </div>
+
+              <div class="achievement-item">
+                <div class="achieve-bullet">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <div class="achieve-details">
+                  <h4 class="achieve-heading" data-editable-id="achieve-3-title">Learning C Language</h4>
+                  <p class="achieve-desc" data-editable-id="achieve-3-desc">Continuously expanding programming depth, data structures, algorithms, and practical C implementations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hobbies Card -->
+          <div class="glass-card hobbies-card">
+            <div class="card-icon-wrapper">
+              <span class="card-icon">🎯</span>
+            </div>
+            <h3 class="card-title">My Hobbies</h3>
+            <p class="card-subtitle-small">Activities and passions that energize my routine:</p>
+            <div class="hobbies-grid">
+              <div class="hobby-box">
+                <span class="hobby-emoji">🏀</span>
+                <h4 class="hobby-title" data-editable-id="hobby-1-title">Play Basketball</h4>
+                <p class="hobby-text" data-editable-id="hobby-1-desc">Staying active on the court with teamwork, fast breaks, and shooting.</p>
+              </div>
+
+              <div class="hobby-box">
+                <span class="hobby-emoji">🎮</span>
+                <h4 class="hobby-title" data-editable-id="hobby-2-title">Playing Online Games</h4>
+                <p class="hobby-text" data-editable-id="hobby-2-desc">Engaging in tactical coordination, reflexes, and multiplayer strategy.</p>
+              </div>
+
+              <div class="hobby-box">
+                <span class="hobby-emoji">📚</span>
+                <h4 class="hobby-title" data-editable-id="hobby-3-title">Studying</h4>
+                <p class="hobby-text" data-editable-id="hobby-3-desc">Dedicated to academic excellence, continuous learning, and exploring new concepts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SKILLS SECTION -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Section 03</span>
+          <h2 class="section-title">My Skills</h2>
+          <p class="section-subtitle" data-editable-id="skills-sub">Communication, athletic capabilities, and physical discipline</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Card 1: Fluent in English -->
+          <div class="glass-card skill-card">
+            <div class="skill-header">
+              <div class="skill-icon-box">🗣️</div>
+              <span class="skill-level-badge">Proficient</span>
+            </div>
+            <h3 class="skill-title" data-editable-id="skill-1-title">Fluent in English</h3>
+            <p class="skill-description" data-editable-id="skill-1-desc">
+              Clear, effective verbal and written communication skills in English for academic, technical, and collaborative settings.
+            </p>
+            <div class="skill-meter">
+              <div class="skill-progress" style="width: 95%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill Card 2: Athletic -->
+          <div class="glass-card skill-card">
+            <div class="skill-header">
+              <div class="skill-icon-box">🏃‍♂️</div>
+              <span class="skill-level-badge">High Discipline</span>
+            </div>
+            <h3 class="skill-title" data-editable-id="skill-2-title">Athletic</h3>
+            <p class="skill-description" data-editable-id="skill-2-desc">
+              Strong physical conditioning, agility, high stamina, and committed dedication to daily athletic performance and active sports.
+            </p>
+            <div class="skill-meter">
+              <div class="skill-progress" style="width: 92%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill Card 3: Calisthenics -->
+          <div class="glass-card skill-card">
+            <div class="skill-header">
+              <div class="skill-icon-box">💪</div>
+              <span class="skill-level-badge">Bodyweight Mastery</span>
+            </div>
+            <h3 class="skill-title" data-editable-id="skill-3-title">Calisthenics</h3>
+            <p class="skill-description" data-editable-id="skill-3-desc">
+              Proficient in bodyweight control, core strength, pulling/pushing movements, flexibility, and static strength development.
+            </p>
+            <div class="skill-meter">
+              <div class="skill-progress" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill Card 4: 6 KM Continuous Running -->
+          <div class="glass-card skill-card highlight-skill">
+            <div class="skill-header">
+              <div class="skill-icon-box">⚡</div>
+              <span class="skill-level-badge special">Endurance</span>
+            </div>
+            <h3 class="skill-title" data-editable-id="skill-4-title">Run 6 km Without Any Break</h3>
+            <p class="skill-description" data-editable-id="skill-4-desc">
+              Exceptional cardiovascular endurance and mental perseverance: capable of completing a 6 km long-distance run continuously without stopping.
+            </p>
+            <div class="skill-stat-pill">
+              <strong>6 KM</strong> Continuous Endurance
+            </div>
+          </div>
+
+          <!-- Skill Card 5: Learning Fighting Skills -->
+          <div class="glass-card skill-card">
+            <div class="skill-header">
+              <div class="skill-icon-box">🥊</div>
+              <span class="skill-level-badge">Martial Arts</span>
+            </div>
+            <h3 class="skill-title" data-editable-id="skill-5-title">Learning Fighting Skills</h3>
+            <p class="skill-description" data-editable-id="skill-5-desc">
+              Passionate about martial arts, combat techniques, self-defense discipline, and reflex training.
+            </p>
+            <div class="skill-meter">
+              <div class="skill-progress" style="width: 85%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: RESUME SECTION -->
+    <section class="section resume-section" id="resume">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Section 04</span>
+          <h2 class="section-title">Curriculum Vitae / Resume</h2>
+          <p class="section-subtitle">Official verified document containing all educational, achievement, and skill details</p>
+        </div>
+
+        <!-- Download Bar -->
+        <div class="resume-download-bar">
+          <button id="downloadResumeBtn" class="btn btn-primary btn-lg download-btn" title="Download or Print Resume as PDF">
+            <svg class="download-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Resume (PDF)</span>
+          </button>
+          
+          <button id="downloadTextResumeBtn" class="btn btn-outline btn-lg" title="Download Resume in Clean Text Format">
+            <svg class="download-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Download Text Resume</span>
+          </button>
+        </div>
+
+        <!-- Printable & Styled Resume Document Card -->
+        <div class="resume-paper" id="resumeDocument">
+          <!-- Resume Header -->
+          <div class="resume-header">
+            <div class="resume-header-info">
+              <h2 class="resume-name" data-editable-id="resume-name">VISHAL</h2>
+              <p class="resume-tagline" data-editable-id="resume-tagline">B.Tech First-Year Student | JECERC University</p>
+              <div class="resume-contact-inline">
+                <span>📍 <span data-editable-id="resume-loc">Sikar, Rajasthan, India</span></span>
+                <span>📧 <span data-editable-id="resume-email-display">vishal@example.com</span></span>
+                <span>📞 <span data-editable-id="resume-phone-display">+91 98765 43210</span></span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="resume-divider" />
+
+          <!-- Resume Body Sections -->
+          <div class="resume-body">
+            <!-- Education -->
+            <div class="resume-block">
+              <h4 class="resume-block-title">EDUCATION</h4>
+              <div class="resume-entry">
+                <div class="resume-entry-row">
+                  <strong class="entry-title" data-editable-id="resume-edu-degree">Bachelor of Technology (B.Tech) — 1st Year</strong>
+                  <span class="entry-date" data-editable-id="resume-edu-year">Present</span>
+                </div>
+                <div class="entry-subtitle" data-editable-id="resume-edu-inst">JECERC University</div>
+                <p class="entry-desc" data-editable-id="resume-edu-desc">First-year undergraduate engineering student with focus on computer science and programming foundations.</p>
+              </div>
+            </div>
+
+            <!-- Achievements & Certifications -->
+            <div class="resume-block">
+              <h4 class="resume-block-title">ACHIEVEMENTS & CERTIFICATIONS</h4>
+              <ul class="resume-bullets">
+                <li data-editable-id="resume-ach-1"><strong>Certificate from IBM:</strong> Successfully earned a professional certification credential from IBM.</li>
+                <li data-editable-id="resume-ach-2"><strong>C Language:</strong> Developed practical programming proficiency in C programming.</li>
+                <li data-editable-id="resume-ach-3"><strong>Learning C Language:</strong> Continuous dedicated learning in algorithms, pointers, memory allocation, and problem-solving in C.</li>
+              </ul>
+            </div>
+
+            <!-- Skills -->
+            <div class="resume-block">
+              <h4 class="resume-block-title">SKILLS & COMPETENCIES</h4>
+              <div class="resume-skills-grid">
+                <div class="resume-skill-item">
+                  <strong>Language:</strong> <span data-editable-id="resume-skill-lang">Fluent in English (Written & Verbal)</span>
+                </div>
+                <div class="resume-skill-item">
+                  <strong>Programming:</strong> <span data-editable-id="resume-skill-prog">C Language (Foundational & Ongoing Learning)</span>
+                </div>
+                <div class="resume-skill-item">
+                  <strong>Athletics & Fitness:</strong> <span data-editable-id="resume-skill-fit">Athletic, Calisthenics, Long-Distance Running (Can run 6 km without any break)</span>
+                </div>
+                <div class="resume-skill-item">
+                  <strong>Discipline:</strong> <span data-editable-id="resume-skill-disc">Learning fighting skills & martial arts discipline</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hobbies -->
+            <div class="resume-block">
+              <h4 class="resume-block-title">HOBBIES & INTERESTS</h4>
+              <p class="resume-entry-text" data-editable-id="resume-hobbies-text">
+                Play Basketball • Playing Online Games • Studying & Continuous Learning
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CONTACT INFORMATION & CREATIVE FORM -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Section 05</span>
+          <h2 class="section-title">Contact Information</h2>
+          <p class="section-subtitle" data-editable-id="contact-sub">Get in touch directly or send a message for projects, collaborations, and opportunities</p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Left: Contact Information Cards (Editable) -->
+          <div class="contact-info-col">
+            <div class="glass-card contact-detail-card">
+              <div class="contact-icon">📧</div>
+              <div class="contact-detail-body">
+                <h4 class="contact-label">Email Address</h4>
+                <p class="contact-value" id="contactEmailDisplay" data-editable-id="contact-email">vishal@example.com</p>
+                <small class="contact-hint">Click "Edit Website" above to update with your exact email</small>
+                <a href="mailto:vishal@example.com" id="emailActionLink" class="contact-link-btn">Send Email &rarr;</a>
+              </div>
+            </div>
+
+            <div class="glass-card contact-detail-card">
+              <div class="contact-icon">📞</div>
+              <div class="contact-detail-body">
+                <h4 class="contact-label">Phone Number</h4>
+                <p class="contact-value" id="contactPhoneDisplay" data-editable-id="contact-phone">+91 98765 43210</p>
+                <small class="contact-hint">Click "Edit Website" above to update with your exact phone number</small>
+                <a href="tel:+919876543210" id="phoneActionLink" class="contact-link-btn">Call Now &rarr;</a>
+              </div>
+            </div>
+
+            <div class="glass-card contact-detail-card">
+              <div class="contact-icon">📍</div>
+              <div class="contact-detail-body">
+                <h4 class="contact-label">Location & University</h4>
+                <p class="contact-value" data-editable-id="contact-location">Sikar, Rajasthan, India</p>
+                <p class="contact-subvalue" data-editable-id="contact-uni">JECERC University (B.Tech 1st Year)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Creative Contact / "Hire Me" Form -->
+          <div class="contact-form-col">
+            <div class="glass-card form-card">
+              <div class="form-header">
+                <span class="form-badge">💬 Send a Message</span>
+                <h3 class="form-title">Hire Me or Say Hello</h3>
+                <p class="form-sub">Drop a line and I'll get back to you promptly.</p>
+              </div>
+
+              <form id="contactForm" class="creative-form" onsubmit="return false;">
+                <div class="form-group">
+                  <label for="senderName" class="form-label">Your Name</label>
+                  <input type="text" id="senderName" class="form-input" placeholder="e.g. Rahul Sharma" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="senderEmail" class="form-label">Your Email Address</label>
+                  <input type="email" id="senderEmail" class="form-input" placeholder="name@domain.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="messageSubject" class="form-label">Subject</label>
+                  <select id="messageSubject" class="form-input form-select">
+                    <option value="Hiring / Opportunity">💼 Opportunity / Hire Me</option>
+                    <option value="Collaboration">🤝 Project Collaboration</option>
+                    <option value="General Inquiry">💬 General Inquiry</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="senderMessage" class="form-label">Message</label>
+                  <textarea id="senderMessage" rows="4" class="form-input form-textarea" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <button type="submit" id="submitContactBtn" class="btn btn-primary btn-block">
+                  <span>Send Message</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+
+                <!-- Feedback Toast -->
+                <div id="formFeedback" class="form-feedback" style="display: none;"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <span class="footer-logo">Vishal</span>
+        <span class="footer-copy">B.Tech First Year Student • JECERC University • Sikar</span>
+      </div>
+      <div class="footer-right">
+        <a href="#home" class="footer-top-link">Back to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast -->
+  <div id="toastNotification" class="toast" role="alert" aria-live="assertive"></div>
+
+  <!-- JavaScript logic -->
+  <script src="script.js"></script>
+</body>
+</html>
